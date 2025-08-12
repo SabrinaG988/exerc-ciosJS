@@ -1,0 +1,47 @@
+function addTarefa() {
+
+  
+   let inputTarefa = document.getElementById("input")
+   let tarefaEmSi = inputTarefa.value
+
+  
+     if  (tarefaEmSi == "") {
+      let aviso = "Escreva algo!"
+      document.getElementById('texto').textContent = aviso
+   }
+    else {
+
+
+   let confirmação = "Você adicionou a tarefa"
+   document.getElementById('texto').textContent = confirmação 
+   
+
+   let listaDeTarefas = document.getElementById('lista')
+   let novoLugarDaTarefa = document.createElement("Li")
+
+   novoLugarDaTarefa.addEventListener('click', function() {
+      if (novoLugarDaTarefa.style.textDecoration === 'line-through') {
+         novoLugarDaTarefa.style.textDecoration = "";
+      }
+      else {
+         novoLugarDaTarefa.style.textDecoration = 'line-through'
+      }   }) 
+
+
+   novoLugarDaTarefa.textContent = tarefaEmSi
+   listaDeTarefas.appendChild(novoLugarDaTarefa) 
+   }  
+
+
+   inputTarefa.value = ""
+ 
+
+   
+   }
+   
+   let inputTarefa = document.getElementById('input')
+
+   inputTarefa.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+         addTarefa()
+      }  } )
